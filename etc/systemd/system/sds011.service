@@ -1,11 +1,11 @@
 [Unit]
-Description=SDS011 Particulate Matter Sensor Publisher
+Description=SDS011 Air Quality Sensor Publisher
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/<PATH-TO-VIRTUAL-ENVIRONMENT>/python /<PATH-TO-sds011MQTT.py-DIRECTORY>/sds011MQTT.py
-WorkingDirectory=/<PATH-TO-sds011MQTT.py-DIRECTORY>
+ExecStart=/home/particles/particles-venv/bin/python /home/particles/airquality/bin/user/sds011.py
+WorkingDirectory=/home/particles/airquality/bin/user
 Restart=always
 RestartSec=10
 User=particles
