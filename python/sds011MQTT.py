@@ -1,14 +1,17 @@
-#!/usr/bin/python -u
-# coding=utf-8
-# SDS011 particulate matter sensor reader
-# Outputs latest values to JSON file and publishes to MQTT
-#
-# Dependencies:
-#   pip install paho-mqtt pyserial
-#
-# JSON file format:
-#   {"pm25": 6.4, "pm10": 9.2, "time": "30.09.2025 17:23:42"}
-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+SDS011 particulate matter sensor reader,
+Outputs latest values to JSON file and publishes to MQTT,
+and repeats every 60seconds.
+Config is reloaded each cycle from options.json.
+Dependencies:
+    pip install paho-mqtt pyserial
+JSON file format:
+    {"pm25": 6.4, "pm10": 9.2, "time": "30.09.2025 17:23:42"}
+(c) 2025 Ian Millard
+GNU GPL v3
+"""
 from __future__ import print_function
 import serial, struct, sys, time, json
 import paho.mqtt.client as mqtt
@@ -24,10 +27,10 @@ MODE_ACTIVE = 0
 MODE_QUERY = 1
 PERIOD_CONTINUOUS = 0
 
-JSON_FILE = '/var/www/html/aqi.json'
+JSON_FILE = '/var/www/html/aqi.json' # use your own preferred path
 
 # MQTT settings
-MQTT_HOST = "192.168.1.150"   # your broker IP
+MQTT_HOST = "192.168.1.150"   # use your own broker IP
 MQTT_PORT = 1883
 MQTT_TOPIC = "/weather/particulatematter"
 MQTT_CLIENT_ID = "sds011_sensor"
