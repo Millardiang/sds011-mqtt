@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/<PATH-TO-VIRTUAL-ENVIRONMENT>/python /<PATH-TO-sds011.py-DIRECTORY>/sds011.py
-WorkingDirectory=/<PATH-TO-sds011.py-DIRECTORY>
+ExecStart=/<PATH-TO-VIRTUAL-ENVIRONMENT>/python /<PATH-TO-sds011MQTT.py-DIRECTORY>/sds011MQTT.py
+WorkingDirectory=/<PATH-TO-sds011MQTT.py-DIRECTORY>
 Restart=always
 RestartSec=10
 User=particles
