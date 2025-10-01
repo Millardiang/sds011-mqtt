@@ -1,0 +1,18 @@
+[Unit]
+Description=SDS011 Particulate Matter Sensor Publisher
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/<PATH-TO-VIRTUAL-ENVIRONMENT>/python /<PATH-TO-sds011.py-DIRECTORY>/sds011.py
+WorkingDirectory=/<PATH-TO-sds011.py-DIRECTORY>
+Restart=always
+RestartSec=10
+User=particles
+Group=particles
+StandardOutput=journal
+StandardError=journal
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
